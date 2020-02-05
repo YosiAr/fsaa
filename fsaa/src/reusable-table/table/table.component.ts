@@ -97,13 +97,15 @@ export class TableComponent implements OnInit,OnDestroy {
   }
   setScroll(){
     let el = document.getElementById('scrollHeight');
-    el.style.height = ((this.tableData.length - 1) * 51) + 'px';
+    el.style.height = ((this.tableShowData.length - 1) * 51) + 'px';
   }
   scrollTo(){
     let el = document.getElementById('myScrollBar');
     el.scrollTop = this.start*51;
   }
   scrollFrom(e){
-    console.log(e)
+    e.preventDefault();
+    this.start = (e.target.scrollTop/51);
+    this.end = this.start + 8;
   }
 }

@@ -1,5 +1,5 @@
   <div class="tableContainer2" (wheel)="onScroll($event)" (scroll) = "$event.preventDefault();" >
-    <div class="myScrollBar" (wheel) = "onScroll($event)" (scroll) = "$event.preventDefault();"  id = "myScrollBar">
+    <div class="myScrollBar" (wheel) = "onScroll($event)" (scroll) = "scrollFrom($event)"  id = "myScrollBar">
       <div id="scrollHeight"></div>
     </div>
     <table class="myTable" [ngStyle]= "myStyle.table">
