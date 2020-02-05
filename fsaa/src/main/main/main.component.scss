@@ -1,0 +1,21 @@
+$mainColor : #264c6e;
+$fontColor : #e5e6e8;
+$elemBackColor : #254462;
+$emphaColor : #243a4c;
+.main{
+    padding: 4.16666667vw 3.95833333vw;
+    font-size: 1em;
+    width: 100%;
+    height: 100%;
+    background: $mainColor;
+    max-width: 100vw;
+    max-height: 100vh;
+    overflow-y: hidden;
+    color: $fontColor;
+    .myBox{
+        min-width: 300px;
+        max-width: 1768px;
+        height: fit-content;
+        margin: 0 auto;
+    }
+}

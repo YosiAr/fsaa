@@ -1,0 +1,33 @@
+{
+  "name": "clientservice",
+  "version": "1.0.0",
+  "description": "Master Service",
+  "type": "module",
+  "main": "dist/server.js",
+  "exports": {
+    "./dist": "./dist"
+  },
+  "scripts": {
+    "start": "node dist/server.js",
+    "dev": "nodemon dist/server.ts",
+    "test": "jest --forceExit --coverage --verbose",
+    "watch-test": "npm run test -- --watchAll",
+    "lint": "eslint \"**/*.{js}\" --quiet --fix",
+    "serve-debug": "nodemon --inspect dist/server.js"
+  },
+  "keywords": [
+    "arbitrage",
+    "clientservice"
+  ],
+  "author": "Yosi",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^6.8.0",
+    "jest": "^24.9.0",
+    "nodemon": "^2.0.1"
+  }
+}

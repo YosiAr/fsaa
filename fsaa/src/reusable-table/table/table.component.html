@@ -1,0 +1,35 @@
+  <div class="tableContainer2" (wheel)="onScroll($event)" (scroll) = "$event.preventDefault();" >
+    <div class="myScrollBar" (wheel) = "onScroll($event)" (scroll) = "$event.preventDefault();"  id = "myScrollBar">
+      <div id="scrollHeight"></div>
+    </div>
+    <table class="myTable" [ngStyle]= "myStyle.table">
+      <tr class="headrow" #myBounds>
+          <th [ngStyle]=myStyle.th class="myTh" *ngFor="let header of Object.keys(this.tableStructure);let k = index;"  [attr.id]="'header' + k + header">     
+            <div class="myThP">
+              <div>
+                <div class="form-group form-group-name myFlexCol myFlexStart">
+                  {{this.tableStructure[header]}}
+                  <input type="text" required="" [ngStyle]=myStyle.search class="myTableSearch myInputForResize" type=text  [value]="this.mysearch[header] ? this.mysearch[header] : ''" (input)="searchUpdate($event.target.value,header);">
+                </div>
+              </div>
+            </div>               
+          </th>
+        </tr>
+        <ng-container *ngIf = "(this.tableShowData) as result">
+          <ng-container  *ngFor="let row of this.tableShowData | mySlice : this.start : this.end;let i = index;">
+            <tr [ngClass]="{'myTr': true,'myOdd':((i+1)%2)}"  [ngStyle]="myStyle.row">
+              <td class="myTd"  *ngFor="let field of Object.keys(this.tableStructure) ;let n = index;" [ngStyle]="myStyle.cell" [attr.row]="i">
+                <span [attr.row]="i">{{ row[field]}}</span>
+              </td>
+            </tr>
+          </ng-container>
+          <tr  class="myPagingBottom">
+            <td class="myPagingConteiner" [attr.colspan]="Object.keys(this.tableStructure).length">
+              <ul [ngStyle]=myStyle.total class="myPaging">
+                  <li> {{ ' Total'}} {{':' + result.length}}</li>
+              </ul>
+            </td>
+          </tr>
+      </ng-container>
+    </table> 
+  </div>
