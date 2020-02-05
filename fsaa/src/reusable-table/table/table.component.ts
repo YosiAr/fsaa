@@ -1,11 +1,9 @@
-import { Component,SimpleChange ,ChangeDetectionStrategy, OnInit,Input, SimpleChanges, OnDestroy} from '@angular/core';
-import { ChangeDetectorRef } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Component, OnInit,Input, SimpleChanges, OnDestroy} from '@angular/core';
+
 @Component({
   selector: 'app-table',
   templateUrl: './table.component.html',
-  styleUrls: ['./table.component.scss'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+  styleUrls: ['./table.component.scss']
 })
 export class TableComponent implements OnInit,OnDestroy {
   @Input() myStyle?:Object = {};
@@ -76,7 +74,7 @@ export class TableComponent implements OnInit,OnDestroy {
       for(i=tableShowData.length-1;i>=0;i--){
         for(k=0;k<arr.length;k++){
           let temp = ""+tableShowData[i][arr[k]];
-          if(temp.toLowerCase().indexOf(this.mysearch[arr[k]].toLowerCase()) == -1){
+          if(temp.toLowerCase().indexOf(this.mysearch[arr[k]].toLowerCase()) != 0){
             tableShowData.splice(i,1);
             break;
           }
